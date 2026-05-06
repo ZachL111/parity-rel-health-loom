@@ -1,0 +1,73 @@
+{
+  "repo": "parity-rel-health-loom",
+  "language": "Solidity",
+  "category": "Reliability",
+  "goal": "Develop a Solidity command-oriented project for health scenarios with append-only fixtures, checkpoint recovery checks, and no credentials or hosted services.",
+  "review_model": {
+    "terms": [
+      "budget pressure",
+      "failure width",
+      "recovery gap",
+      "runbook drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "budget pressure",
+      "signal": 42,
+      "slack": 42,
+      "drag": 10,
+      "confidence": 60,
+      "score": 156,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "failure width",
+      "signal": 58,
+      "slack": 47,
+      "drag": 13,
+      "confidence": 48,
+      "score": 172,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "recovery gap",
+      "signal": 53,
+      "slack": 47,
+      "drag": 8,
+      "confidence": 70,
+      "score": 199,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "runbook drift",
+      "signal": 80,
+      "slack": 34,
+      "drag": 22,
+      "confidence": 63,
+      "score": 191,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "budget pressure",
+      "signal": 55,
+      "slack": 53,
+      "drag": 24,
+      "confidence": 74,
+      "score": 165,
+      "lane": "ship"
+    }
+  ]
+}
